@@ -9,15 +9,27 @@
 
 schema_version: "0.1.4"
 
-node_id: "b927a9dd-6132-4fc9-a51e-e3cee2568e3c"
-scope_id: "b44d4394-3147-5787-acab-51546be6a3da"
+node_id: "04bfcc09-1937-4d3d-91a7-12b92947d167"
+scope_id: "2d440cdc-1046-5213-b68d-f42a15471ac1"
 scope_key: "default"
 
 intent:
-  name: node-template
+  name: coulditbe
 
 cogni_dao:
-  chain_id: "8453" # Base mainnet
+  dao_contract: "0x196854b8d7c3828ddbe95581ad44a28df8a83dc1"
+  plugin_contract: "0xf3365303ac42cc85d2d979b650ca60348ac94ee2"
+  signal_contract: "0x69829f70e83a179a4f4f2c6755db4fd8786a0288"
+  chain_id: "8453"
+
+knowledge:
+  database: "knowledge_coulditbe"
+  remote:
+    provider: dolthub
+    owner: "cogni-dao"
+    repo: "knowledge-coulditbe"
+    url: "https://doltremoteapi.dolthub.com/cogni-dao/knowledge-coulditbe"
+    custody: cogni-owned
 
 # Activity ledger ingestion + approver allowlist.
 # `approvers` gates the `(admin)/` route group and write routes under
@@ -30,7 +42,7 @@ activity_ledger:
   activity_sources:
     github:
       attribution_pipeline: cogni-v0.0
-      source_refs: ["Cogni-DAO/standalone-node"]
+      source_refs: ["Cogni-DAO/coulditbe"]
 
 payments:
   status: pending_activation
