@@ -9,15 +9,27 @@
 
 schema_version: "0.1.4"
 
-node_id: "b927a9dd-6132-4fc9-a51e-e3cee2568e3c"
-scope_id: "b44d4394-3147-5787-acab-51546be6a3da"
+node_id: "da8bbc56-96e6-413a-8b45-3a43bfeee6d6"
+scope_id: "4fb32061-8ebe-51f0-bf27-9f1f839f08c4"
 scope_key: "default"
 
 intent:
-  name: node-template
+  name: please
 
 cogni_dao:
-  chain_id: "8453" # Base mainnet
+  dao_contract: "0x25e780715c67c45c29fe6a0dff45eb90cf2a539b"
+  plugin_contract: "0xdbd128b0f63b4827b576a71caeda2aa426d2a557"
+  signal_contract: "0x757525ebd24958902d51606e71ebf6f8c4da1218"
+  chain_id: "8453"
+
+knowledge:
+  database: "knowledge_please"
+  remote:
+    provider: dolthub
+    owner: "cogni-dao"
+    repo: "knowledge-please"
+    url: "https://doltremoteapi.dolthub.com/cogni-dao/knowledge-please"
+    custody: cogni-owned
 
 # Activity ledger ingestion + approver allowlist.
 # `approvers` gates the `(admin)/` route group and write routes under
@@ -30,7 +42,7 @@ activity_ledger:
   activity_sources:
     github:
       attribution_pipeline: cogni-v0.0
-      source_refs: ["Cogni-DAO/standalone-node"]
+      source_refs: ["Cogni-DAO/please"]
 
 payments:
   status: pending_activation
