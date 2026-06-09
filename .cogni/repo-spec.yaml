@@ -9,15 +9,27 @@
 
 schema_version: "0.1.4"
 
-node_id: "b927a9dd-6132-4fc9-a51e-e3cee2568e3c"
-scope_id: "b44d4394-3147-5787-acab-51546be6a3da"
+node_id: "a133ace7-4ca4-4c41-9e31-6cffa5778987"
+scope_id: "015514e6-546c-561f-b489-f128505c9c16"
 scope_key: "default"
 
 intent:
-  name: node-template
+  name: ayo
 
 cogni_dao:
-  chain_id: "8453" # Base mainnet
+  dao_contract: "0x12a0c98c23d4821e987df6556ac6d091c2c3871e"
+  plugin_contract: "0x98e28e4f6adf221343dcdd8eb6f45e37e02d44bc"
+  signal_contract: "0x5c7d4f6a30e982f40ca96a98581d4b63afee3d55"
+  chain_id: "8453"
+
+knowledge:
+  database: "knowledge_ayo"
+  remote:
+    provider: dolthub
+    owner: "cogni-dao"
+    repo: "knowledge-ayo"
+    url: "https://doltremoteapi.dolthub.com/cogni-dao/knowledge-ayo"
+    custody: cogni-owned
 
 # Activity ledger ingestion + approver allowlist.
 # `approvers` gates the `(admin)/` route group and write routes under
@@ -30,7 +42,7 @@ activity_ledger:
   activity_sources:
     github:
       attribution_pipeline: cogni-v0.0
-      source_refs: ["Cogni-DAO/standalone-node"]
+      source_refs: ["Cogni-DAO/ayo"]
 
 payments:
   status: pending_activation
